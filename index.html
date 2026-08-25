@@ -69,12 +69,12 @@
     @media (max-width:760px){
       .app{padding-top:16px}
       .hero{gap:18px;padding-top:22px}
-      .desk{height:410px;margin-top:0;transform:none!important;overflow:hidden!important}
+      .desk{height:440px;margin-top:0;transform:none!important;overflow:visible!important}
       .window{left:6%!important;top:36px!important;width:136px!important;height:142px!important}
-      .cow{right:3%!important;top:52px!important;transform:scale(.82);transform-origin:top right}
-      .bubble{right:0!important;top:8px!important;transform:scale(.74) rotate(2deg);transform-origin:top right}
+      .cow{right:3%!important;top:62px!important;transform:scale(.82);transform-origin:top right;z-index:3!important}
+      .bubble{right:8px!important;top:10px!important;max-width:210px;transform:scale(.74) rotate(2deg);transform-origin:top right;z-index:10!important}
       .laptop{right:4%!important;top:210px!important;transform:scale(.78) skew(5deg);transform-origin:top right}
-      .badges{left:8px!important;right:8px!important;bottom:4px!important;gap:6px!important;transform:none!important;width:auto!important}
+      .badges{left:8px!important;right:8px!important;bottom:4px!important;gap:6px!important;transform:none!important;width:auto!important;z-index:11!important}
       .badge{height:128px!important;min-width:0}
       .id-card{left:4%!important;right:4%!important}
       .scene-icon svg{width:112px;height:112px;display:block}
@@ -114,7 +114,7 @@
  ];
  let step=0, answers=[], sound=true, activeType=null, activeIdx=0, assessment=null;
  const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
- function startMusic(){}function stopMusic(){}function beep(){}
+ function startMusic(){}function stopMusic(){}function beep(){}\n window.addEventListener('pageshow',()=>{if(!location.hash)window.scrollTo({top:0,behavior:'auto'})});
  function show(id){$$('.screen').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-hidden','true')});const target=$('#'+id);target.classList.add('active');target.removeAttribute('aria-hidden');window.scrollTo({top:0,behavior:'smooth'})}
  function begin(){step=0;answers=[];show('quiz');renderQ();startMusic();beep(520)}
  function quizIcon(questionIndex,optionIndex,fallback){if(questionIndex===0&&optionIndex===0)return `<svg viewBox="0 0 180 150" aria-label="鱼" role="img"><path d="M26 75C38 37 80 22 121 38l31-18-3 33 22 22-23 23 3 33-32-19C79 130 39 111 26 75Z" fill="#16b8e7" stroke="#262522" stroke-width="8" stroke-linejoin="round"/><path d="M59 56c15-17 40-24 61-18v31H83Z" fill="#087da8" stroke="#262522" stroke-width="7" stroke-linejoin="round"/><path d="M55 91c20 10 42 12 66 8v24c-31 5-55-4-66-32Z" fill="#8fd7ef"/><circle cx="59" cy="66" r="8" fill="#262522"/><path d="M29 79l22 6-16 12" fill="none" stroke="#262522" stroke-width="7" stroke-linecap="round"/><path d="M92 55h0M113 57h0M132 66h0" stroke="#fffdf6" stroke-width="11" stroke-linecap="round"/></svg>`;if(questionIndex===0&&optionIndex===1)return `<svg viewBox="0 0 180 150" aria-label="立即开工" role="img"><circle cx="102" cy="25" r="16" fill="#f4c65a" stroke="#262522" stroke-width="8"/><path d="M94 43l-21 35 28 21 28-29-18-27Z" fill="#ed5d38" stroke="#262522" stroke-width="8" stroke-linejoin="round"/><path d="M77 56L48 40 35 54l32 27M119 61l30 10 8-14-32-16" fill="none" stroke="#262522" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M88 96l-26 34 17 9 28-35M111 91l20 29 17-8-20-38" fill="#0a9bd2" stroke="#262522" stroke-width="8" stroke-linejoin="round"/><path d="M54 139h28M128 120h26" stroke="#f4c65a" stroke-width="13" stroke-linecap="round"/></svg>`;return `<span class="emoji-fallback">${fallback}</span>`}
