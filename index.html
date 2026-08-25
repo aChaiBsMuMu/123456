@@ -65,18 +65,18 @@
     .jobs-card:has(#notes){grid-column:1/-1}.jobs-card:has(#notes) .job-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.jobs-card:has(#notes) .job{align-items:flex-start;min-height:142px;padding:18px}.jobs-card:has(#notes) .job-icon{font-size:38px;flex:0 0 auto}.jobs-card:has(#notes) strong{font-size:17px}.jobs-card:has(#notes) small{font-size:14px;line-height:1.65;margin-top:8px}.jobs-card:has(#notes) small:after{content:"。建议把这条提示写进每周计划，用一次真实任务验证，再根据反馈微调自己的工作方式。";color:var(--muted)}
     @media(max-width:760px){.hero-copy h1 .title-line+ .title-line{margin-top:7px}.assessment-grid{grid-template-columns:1fr}.jobs-card:has(#notes) .job-list{grid-template-columns:1fr}.jobs-card:has(#notes) .job{min-height:auto}}
     #jobBack{position:relative;z-index:20;display:inline-flex;align-items:center;padding:10px 14px;margin-bottom:18px;border:2px solid var(--ink);border-radius:999px;background:var(--white);box-shadow:3px 4px 0 var(--ink)}
-    /* Mobile parity: keep the desktop illustration as one compact composition. */
+    /* Homepage: preserve the desktop illustration composition on phones. */
     @media (max-width:760px){
       .app{padding-top:16px}
       .hero{gap:18px;padding-top:22px}
-      .desk{height:440px;margin-top:0;transform:none!important;overflow:visible!important}
-      .window{left:6%!important;top:36px!important;width:136px!important;height:142px!important}
-      .cow{right:3%!important;top:62px!important;transform:scale(.82);transform-origin:top right;z-index:3!important}
-      .bubble{right:8px!important;top:10px!important;max-width:210px;transform:scale(.74) rotate(2deg);transform-origin:top right;z-index:10!important}
-      .laptop{right:4%!important;top:210px!important;transform:scale(.78) skew(5deg);transform-origin:top right}
-      .badges{left:8px!important;right:8px!important;bottom:4px!important;gap:6px!important;transform:none!important;width:auto!important;z-index:11!important}
-      .badge{height:128px!important;min-width:0}
-      .id-card{left:4%!important;right:4%!important}
+      .desk{height:520px;max-width:540px;margin:0 auto;transform:none!important;overflow:hidden!important}
+      .window{left:35px!important;top:34px!important;width:160px!important;height:170px!important}
+      .cow{right:34px!important;top:100px!important;transform:none!important;z-index:3!important}
+      .bubble{right:8px!important;top:10px!important;max-width:none;transform:rotate(2deg)!important;z-index:10!important}
+      .laptop{right:92px!important;top:250px!important;transform:skew(5deg)!important}
+      .badges{left:22px!important;right:22px!important;bottom:-2px!important;gap:12px!important;transform:none!important;width:auto!important;z-index:11!important}
+      .badge{height:155px!important;min-width:0}
+      .id-card{left:3%!important;right:3%!important}
       .scene-icon svg{width:112px;height:112px;display:block}
     }
     .scene-icon svg{width:150px;height:150px;display:block}
