@@ -103,11 +103,31 @@
     .quiz-art{width:150px;height:150px;display:block;filter:drop-shadow(3px 4px 0 rgba(38,37,34,.18))}
     @media(max-width:760px){.quiz-art{width:112px;height:112px}}
 
+  
+    /* Mobile home illustration is one scaled canvas, never a cropped re-layout. */
+    .desk-art{position:absolute;inset:0;transform-origin:top left}
+    @media(max-width:760px){
+      .desk{width:100%!important;max-width:540px!important;height:333px!important;overflow:hidden!important}
+      .desk-art{width:540px;height:520px;transform:scale(.64)}
+      .desk-art .window{left:35px!important;top:34px!important;width:160px!important;height:170px!important}
+      .desk-art .cow{right:34px!important;top:100px!important;transform:none!important;z-index:3!important}
+      .desk-art .bubble{right:8px!important;top:10px!important;max-width:none!important;transform:rotate(2deg)!important;z-index:10!important}
+      .desk-art .laptop{right:92px!important;top:250px!important;transform:skew(5deg)!important}
+      .desk-art .badges{left:22px!important;right:22px!important;bottom:-2px!important;gap:12px!important;z-index:11!important}
+      .desk-art .badge{height:155px!important}.desk-art .id-card{left:3%!important;right:3%!important}
+    }
+    @media(min-width:421px) and (max-width:599px){
+      .desk{height:385px!important}.desk-art{transform:scale(.74)}
+    }
+    @media(min-width:600px) and (max-width:760px){
+      .desk{height:440px!important}.desk-art{transform:scale(.85)}
+    }
+
   </style>
 </head>
 <body><main class="app">
   <nav class="topbar" aria-label="页面导航"><div class="logo"><span class="logo-mark" aria-hidden="true">职</span><span>职场动物图鉴</span></div></nav>
-  <section id="home" class="screen active"><div class="hero"><div class="hero-copy"><span class="eyebrow">✦ 8 道情境题 · 约 2 分钟</span><h1><span class="title-line">抽了一张工牌</span><span class="title-line">解锁你的<em>职场动物身份</em></span></h1><p class="lead">没有标准答案，也不替你贴标签。跟着第一反应走，看看哪只职场动物，正在悄悄替你发光。</p><button class="start" id="start">抽一张我的工牌 →</button><span class="micro">已有 28,619 位打工人完成测试</span></div><div class="desk"><div class="window"><i class="cloud"></i></div><div class="bubble">抽一张工牌<br>解锁你的职场动物身份！</div><div class="cow"><i class="horn left"></i><i class="horn right"></i><i class="ear left"></i><i class="ear right"></i><div class="cow-patch"></div><div class="cow-face"><b>•</b><span>ᴥ</span><b>•</b></div><div class="cow-shirt"><i></i></div></div><div class="laptop">WORK?</div><div class="badges"><div class="badge blue" data-start><div class="lanyard"></div><div class="clip"></div><div class="id-card"><i class="avatar"></i><b>灵感蓝</b><span></span><small></small></div></div><div class="badge yellow" data-start><div class="lanyard"></div><div class="clip"></div><div class="id-card"><i class="avatar"></i><b>行动黄</b><span></span><small></small></div></div><div class="badge coral" data-start><div class="lanyard"></div><div class="clip"></div><div class="id-card"><i class="avatar"></i><b>能量红</b><span></span><small></small></div></div></div></div></div></section>
+  <section id="home" class="screen active"><div class="hero"><div class="hero-copy"><span class="eyebrow">✦ 8 道情境题 · 约 2 分钟</span><h1><span class="title-line">抽了一张工牌</span><span class="title-line">解锁你的<em>职场动物身份</em></span></h1><p class="lead">没有标准答案，也不替你贴标签。跟着第一反应走，看看哪只职场动物，正在悄悄替你发光。</p><button class="start" id="start">抽一张我的工牌 →</button><span class="micro">已有 28,619 位打工人完成测试</span></div><div class="desk"><div class="desk-art"><div class="window"><i class="cloud"></i></div><div class="bubble">抽一张工牌<br>解锁你的职场动物身份！</div><div class="cow"><i class="horn left"></i><i class="horn right"></i><i class="ear left"></i><i class="ear right"></i><div class="cow-patch"></div><div class="cow-face"><b>•</b><span>ᴥ</span><b>•</b></div><div class="cow-shirt"><i></i></div></div><div class="laptop">WORK?</div><div class="badges"><div class="badge blue" data-start><div class="lanyard"></div><div class="clip"></div><div class="id-card"><i class="avatar"></i><b>灵感蓝</b><span></span><small></small></div></div><div class="badge yellow" data-start><div class="lanyard"></div><div class="clip"></div><div class="id-card"><i class="avatar"></i><b>行动黄</b><span></span><small></small></div></div><div class="badge coral" data-start><div class="lanyard"></div><div class="clip"></div><div class="id-card"><i class="avatar"></i><b>能量红</b><span></span><small></small></div></div></div></div></div></div></section>
   <section id="quiz" class="screen"><div class="quiz-wrap"><div class="section-title"><span class="eyebrow">凭直觉选择，更像真实的你</span></div><div class="progress-row"><button class="back" id="back">← 上一题</button><div class="progress"><i id="progress"></i></div><span class="counter" id="counter">01 / 08</span></div><article class="question-card"><h2 class="question-head" id="question"></h2><div class="options" id="options"></div><div class="quiz-actions"><span class="share-note">点击选择后自动进入下一题</span></div></article></div></section>
   <section id="ability" class="screen"><div class="ability-page"><button class="back" id="abilityBack">← 返回结果页</button><article class="ability-detail"><span class="eyebrow">能力维度详解</span><div class="ability-score"><span id="abilityScore">92</span><small style="font-size:20px">/100</small></div><h1 id="abilityName">创意能力</h1><p class="lead" id="abilityIntro"></p><div class="ability-copy"><div><h3>在工作中的表现</h3><p id="abilityWork"></p></div><div><h3>提升建议</h3><p id="abilityGrow"></p></div></div></article></div></section>
   <section id="jobDetail" class="screen"><div class="job-page"><button type="button" class="back" id="jobBack">← 返回结果页</button><article class="job-profile"><span class="eyebrow">岗位匹配详解</span><div class="job-title-row"><span class="job-icon" id="jobDetailIcon">🎨</span><h1 id="jobDetailName">品牌创意策划师</h1><span class="match" id="jobDetailMatch">匹配 96%</span></div><p class="lead" id="jobDetailIntro"></p><div class="skill-columns"><div class="skill-box"><h3>✓ 你已经具备的技能</h3><div class="skill-chips" id="currentSkills"></div></div><div class="skill-box grow"><h3>↗ 还需要完善的技能</h3><div class="skill-chips" id="growthSkills"></div></div></div></article></div></section>
